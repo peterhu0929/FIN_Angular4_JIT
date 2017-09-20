@@ -1,0 +1,80 @@
+<md-toolbar class="app-toolbar" color="primary">
+  <button md-icon-button [toolbarButton] (click)="sidenav.toggle()">
+    <md-icon>subject</md-icon>
+  </button>
+  <img class="toolbar-logo" alt="Home" title="Home" src={{logoSrc}}>
+  <span>{{title}}</span>
+  <span class="fill-remaining-space"></span>
+  <span>{{isLive}}</span>
+  <button md-icon-button [toolbarButton] (click)="sidenavRight.toggle()">
+    <md-icon>face</md-icon>
+  </button>
+  <button md-button (click)="Logout()">
+    <md-icon>input</md-icon>
+  </button>
+</md-toolbar>
+<md-sidenav-container class="sidenav-container">
+  <md-sidenav align="end" #sidenavRight class="sidenavRight">
+    <md-toolbar>
+      <span>Loign info</span>
+      <span><md-icon>verified_user</md-icon></span>
+    </md-toolbar>
+    <md-list>
+      <md-list-item class="l-sub-section">
+        <md-icon>code</md-icon>
+        {{userInfoDatas.USER_ID}}
+      </md-list-item>
+      <md-list-item class="l-sub-section">
+        <md-icon>account_circle</md-icon>
+        {{userInfoDatas.USR_NAME}}
+      </md-list-item>
+      <md-list-item class="l-sub-section">
+        <md-icon>account_balance</md-icon>
+        {{userInfoDatas.DIVISION}}
+      </md-list-item>
+      <md-list-item class="l-sub-section">
+        <md-icon>phone</md-icon>
+        <input mdInput placeholder="Required" type="text" [(ngModel)]="userInfoDatas.EXTEN_NO" required>
+      </md-list-item>
+      <md-list-item class="l-sub-section">
+        <md-icon>email</md-icon>
+        {{userInfoDatas.EMAIL}}
+      </md-list-item>
+    </md-list>
+    <div>
+      <kendo-calendar></kendo-calendar>
+    </div>
+
+  </md-sidenav>
+
+</md-sidenav-container>
+<md-sidenav-container class="sidenav-container">
+  <md-sidenav class="sidenav sidebar-panel" #sidenav mode={{sidenavMode}} opened={{sidenavOpen}}>
+
+
+    <md-nav-list appAccordion class="navigation">
+      <md-list-item appAccordionLink *ngFor="let data of sideNavDatas" group="{{ data.catogory }}">
+        <a appAccordionToggle class="relative" md-ripple href="javascript:;">
+          <md-icon>equalizer</md-icon>
+          <span>{{data.catogory}}</span>
+          <span fxFlex></span>
+          <md-icon class="menu-caret">arrow_drop_down</md-icon>
+        </a>
+        <md-nav-list class="sub-menu">
+          <md-list-item *ngFor="let item of data.program" routerLinkActive="open">
+            <a routerLink='{{item.modulePath +"/"+ item.pg + "." + item.id }}' class="relative" md-ripple (click)="menuItemEvent(item)">
+              {{item.pg}} {{item.text.replace(item.pg,'')}}
+            </a>
+          </md-list-item>
+        </md-nav-list>
+      </md-list-item>
+    </md-nav-list>
+
+  </md-sidenav>
+  <section role="content" class="sidenav-content">
+
+    <div [@routeAnimation]="prepRouteState(routerOutlet)">
+      <router-outlet #routerOutlet="outlet"></router-outlet>
+    </div>
+  </section>
+</md-sidenav-container>

@@ -1,0 +1,58 @@
+<div layout="column" layout-fill>
+  <img class="login-logo" src="assets/icon/Yang_Ming_Line.svg" align="left">
+  <div layout-padding flex>
+    <div class="w3-container w3-animate-opacity" layout-align-gt-xs="center">
+      <div class=" login-box">
+        <div class="section">
+          <md-card style="opacity:0.85;">
+            <md-card-title>
+              Login
+            </md-card-title>
+            <md-card-subtitle>
+              Sign in your Yangming ILIS
+            </md-card-subtitle>
+            <md-card-content>
+              <div layout="row">
+                <md-input-container class="full-width">
+                  <input mdInput placeholder="請輸入身分證字號含英文及數字共10碼" type="text" maxlength="30" style="text-transform:uppercase" name="username" [(ngModel)]="username" required>
+                  <md-icon mdSuffix>person</md-icon>
+                  <!--<md-hint align="start">
+                      <span [hidden]="!userControl.errors?.required || userControl.pristine">Required</span>
+                    </md-hint>
+                    <md-hint align="end">{{userElement.value.length}} / 20</md-hint>-->
+                </md-input-container>
+              </div>
+              <div layout="row">
+                <md-input-container class="full-width">
+                  <input mdInput placeholder="請輸入民國生日共6碼" type="password" [(ngModel)]="password"  name="password"  (keyup.enter)="Login()"  required>
+                  <span mdSuffix><md-icon>lock</md-icon></span>
+                  <!--<md-hint align="start">
+                      <span [hidden]="!passControl.errors?.required || passControl.pristine">Required</span>
+                    </md-hint>
+                    <md-hint align="end" style="color:red;">{{error}}</md-hint>-->
+                </md-input-container>
+              </div>
+              <div layout="row">
+                <span><md-icon>view_module</md-icon></span>
+                <md-select placeholder="Moudle" [(ngModel)]="moudle">
+                  <md-option *ngFor="let m of sysMoudles" [value]="m.code">{{m.name}} </md-option>
+                </md-select>
+              </div>
+              <md-card-subtitle>
+                {{message}}
+              </md-card-subtitle>
+              <md-card-actions layout="row">
+                <button md-raised-button color="accent" (click)="Login()">Sign In
+                </button>
+                <div [ngBusy]="{busy: busy, message: 'Loading...', backdrop: true, delay: 0, minDuration: 600}"></div>
+              </md-card-actions>
+            </md-card-content>
+          </md-card>
+          <h6 align="center" style="color:white;">Copyright © 2017 YANG MING Group. All Rights Reserved.</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

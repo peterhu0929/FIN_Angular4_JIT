@@ -1,0 +1,136 @@
+<md-card>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <md-card-title>
+      <label>{{'STOCK_OPTION_YEAR'|i18n}}</label>
+    </md-card-title>
+    <md-card-content>
+      <md-input-container>
+        <input mdInput [(ngModel)]="stockoptions.STOCK_OPTION_YEAR" required>
+      </md-input-container>
+      <md-card-title>
+        <label>{{'STOCK_OPTION_NAME'|i18n}}</label>
+      </md-card-title>
+      <md-input-container>
+        <input mdInput [(ngModel)]="stockoptions.STOCK_OPTION_NAME" required>
+      </md-input-container>
+      <md-card-title>
+        <label>{{'REPLY_DATE'|i18n}}</label>
+      </md-card-title>
+      <md-input-container>
+        <input mdInput [mdDatepicker]="REPLY_DATEpicker" [(ngModel)]="stockoptions.REPLY_DATE">
+        <md-datepicker-toggle mdSuffix [for]="REPLY_DATEpicker"></md-datepicker-toggle>
+        <md-datepicker #REPLY_DATEpicker></md-datepicker>
+      </md-input-container>
+      <md-card-title>
+        <label> {{'UnitPrice' |i18n}}</label>
+      </md-card-title>
+      <md-input-container>
+        <input mdInput [(ngModel)]="stockoptions.UNIT_PRICE" type="number" style="text-align:right" step=0.01 required>
+      </md-input-container>
+    </md-card-content>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <md-card-title>
+      <label>{{'PAYMENT_PERIOD_FROM'|i18n}}</label>
+    </md-card-title>
+    <md-card-content>
+      <md-form-field>
+        <input mdInput [mdDatepicker]="PAYMENT_PERIOD_FROMpicker" [(ngModel)]="stockoptions.PAYMENT_PERIOD_FROM">
+        <md-datepicker-toggle mdSuffix [for]="PAYMENT_PERIOD_FROMpicker"></md-datepicker-toggle>
+        <md-datepicker #PAYMENT_PERIOD_FROMpicker></md-datepicker>
+      </md-form-field>
+      <md-card-title>
+        <label>{{'PAYMENT_PERIOD_TO'|i18n}}</label>
+      </md-card-title>
+      <md-form-field>
+        <input mdInput [mdDatepicker]="PAYMENT_PERIOD_TOpicker" [(ngModel)]="stockoptions.PAYMENT_PERIOD_TO">
+        <md-datepicker-toggle mdSuffix [for]="PAYMENT_PERIOD_TOpicker"></md-datepicker-toggle>
+        <md-datepicker #PAYMENT_PERIOD_TOpicker></md-datepicker>
+      </md-form-field>
+      <md-card-title>
+        <label>{{'EXPIRE_DATE'|i18n}}</label>
+      </md-card-title>
+      <md-form-field>
+        <input mdInput [mdDatepicker]="EXPIRE_DATEpicker" [(ngModel)]="stockoptions.EXPIRE_DATE">
+        <md-datepicker-toggle mdSuffix [for]="EXPIRE_DATEpicker"></md-datepicker-toggle>
+        <md-datepicker #EXPIRE_DATEpicker></md-datepicker>
+      </md-form-field>
+    </md-card-content>
+  </div>
+  <div style="text-align:right">
+    <button md-raised-button (click)="confirm()" color="primary" [ngStyle]="{'margin': '20px'}">確認</button>
+  </div>
+</md-card>
+
+<kendo-dialog title="認股確認原則，請同仁務必詳細閱讀" *ngIf="!opened">
+  <h5 style="margin: 30px; text-align: left;">
+    <ol>
+      <li>填寫完畢後請按送出鍵，系統將會寄發確認信至員工電子郵件信箱，同仁收信後點選確認即完成調查</li>
+      <br>
+      <li>若於調查時間截止前未進入系統填寫並完成第1點之確認程序，即視同放棄認股權利</li>
+      <br>
+      <li>在調查時間截止前，同仁可再度進入系統更改資料，完成第1點之確認程序後，系統便會更新認股資料</li>
+      <br>
+      <li>若修改資料後未完成第1點之確認程序，則系統將以最近一次完成確認程序之資料為準</li>
+    </ol>
+  </h5>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="closed()" [primary]="true">我確認</button>
+  </kendo-dialog-actions>
+</kendo-dialog>
+
+<!-- <label>{{(stockoptions.PAYMENT_PERIOD_TO | date:'y')-1911}}{{stockoptions.PAYMENT_PERIOD_TO | date:'/M/d'}}</label> -->
+<!-- <label>{{stockoptions.PAYMENT_PERIOD_FROM | date:'EEE MMM d y HH:mm:ss Z z'}}</label> -->
+
+
+
+
+
+
+
+<!-- {{stockoptions.PAYMENT_PERIOD_TO | date:'y/M/d'}} {{stockoptions.PAYMENT_PERIOD_TO}} -->
+
+
+<!-- <md-input-container>
+  <input mdInput placeholder="PAYMENT_PERIOD_FROM"  [ngModel]="stockoptions.PAYMENT_PERIOD_FROM | date:'EEE MMM d y HH:mm:ss Z (z)'"(ngModelChange)="value=$event">
+</md-input-container> -->
+
+<!-- <md-input-container [ngStyle]="{'width': '500px'}">
+  <input mdInput placeholder="OnlyNum" (keypress)="onlyNum($event)">
+  <input mdInput placeholder="OnlyNum"  [(ngModel)]="test" pattern="[a-zA-Z][a-zA-Z ]+"  #name="ngModel">
+</md-input-container>
+<br>
+<md-input-container [ngStyle]="styleTest">
+  <input mdInput placeholder="OnlyEng" (keypress)="onlyEng($event)">
+</md-input-container> -->
+
+
+
+<!-- <p>{{box.value}}</p>
+<p>{{OnlyNum}}</p> -->
+
+
+
+<!-- <md-input-container>
+  <input mdInput placeholder="PAYMENT_PERIOD_FROM"  [ngModel]="stockoptions.PAYMENT_PERIOD_FROM | date:'EEE MMM d y HH:mm:ss Z (z)'"(ngModelChange)="value=$event">
+</md-input-container> -->
+
+<!-- <label>{{stockoptions.PAYMENT_PERIOD_FROM | date:'EEE MMM d y HH:mm:ss Z z'}}</label>
+<div>
+  <kendo-calendar></kendo-calendar>
+</div>
+
+<div style="min-height: 400px">
+  <p>Select a date:</p>
+  <kendo-datepicker [format]="'yyyy/MM/dd'" [(value)]="stockoptions.PAYMENT_PERIOD_FROM"></kendo-datepicker>
+</div>
+<div>
+  User_ID={{'UserID'|i18n}}
+  <br> User_Name={{'UserName'|i18n}}
+  <br>Division:{{'Division'|i18n}}
+  <br>ExtenNumber :{{'ExtenNumber'|i18n}}
+  <br>Email:{{'Email'|i18n}}
+  <br>InternalServerError:{{'InternalServerError'|i18n:'Message'}}
+  <br>{{'Cash'|i18n}}
+  <br>{{'UnitPrice' |i18n}}
+</div> -->
