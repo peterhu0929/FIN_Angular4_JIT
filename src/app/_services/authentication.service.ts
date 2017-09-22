@@ -4,14 +4,10 @@ import {Headers, Http, RequestOptions, Response, URLSearchParams} from '@angular
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import {ilisEnvironment} from 'app/../environments/environment';
+import {ilisEnvironment} from '../../environments/environment';
 import {Router} from '@angular/router';
-import {environment} from 'app/../environments/environment';
 import {Session} from '../_model/session';
 import {SessionService} from './session.service';
-
-// import {noUndefined} from "@angular/compiler/src/util";
-// import {User} from '../models/user';
 
 @Injectable()
 export class AuthenticationService {

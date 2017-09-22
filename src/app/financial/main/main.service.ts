@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, RequestOptions, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import {ilisEnvironment} from 'app/../environments/environment';
 import {AppSessionService} from '../session/app-session.service';
 import 'rxjs';
 import {Observable} from 'rxjs/Observable';

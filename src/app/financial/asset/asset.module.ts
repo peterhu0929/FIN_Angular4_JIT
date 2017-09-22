@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import { AssetComponent } from './asset.component';
 import {PipeModule} from '../../_pipe/pipe.module';
 import {AssetRoutingModule} from './asset-routing.module';
-import { MyIframeComponent } from '../../_shared/my-iframe/my-iframe.component';
+import {SharedCommonModule} from '../../_shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     PipeModule,
-    AssetRoutingModule
+    AssetRoutingModule,
+    SharedCommonModule
   ],
   declarations: [
-    AssetComponent,
-    MyIframeComponent
+    AssetComponent
   ]
 })
 export class AssetModule { }

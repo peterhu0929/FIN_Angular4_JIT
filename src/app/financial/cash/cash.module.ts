@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import { CashComponent } from './cash.component';
 import { PipeModule } from '../../_pipe/pipe.module';
 import { CashRoutingModule } from './cash-routing.module';
-import { MyIframeComponent } from '../../_shared/my-iframe/my-iframe.component';
+import {SharedCommonModule} from '../../_shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     PipeModule,
-    CashRoutingModule
+    CashRoutingModule,
+    SharedCommonModule
   ],
   declarations: [
-    CashComponent,
-    MyIframeComponent
+    CashComponent
   ]
 })
 export class CashModule { }

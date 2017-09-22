@@ -15,8 +15,9 @@
     "publishTest": "cpx dist/**/* \\\\ymfs\\APFS\\Web_ITGF\\Test\\Angular ",
     "publishProduction": "cpx dist/**/* \\\\ymfs\\APFS\\Web_ITGF\\Production\\financial ",
     "json-server-winston": "json-server json-server\\db-winston.json -r json-server\\routes-winston.json",
-    "json-server-peter": "json-server json-server\\db-peter.json -r json-server\\routes-peter.json --port 3888",
-    "json-server-jy": "json-server json-server\\db-jy.json -r json-server\\routes-jy.json"
+    "json-server-peter": "json-server json-server\\db-peter.json -r json-server\\routes-peter.json",
+    "json-server-jy": "json-server json-server\\db-jy.json -r json-server\\routes-jy.json",
+    "aot": "ngc -p tsconfig-aot.json && rollup -c rollup-config.js && lite-server -c=lite-config.json"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +32,7 @@
     "@angular/material": "github:angular/material2-builds",
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/platform-server": "^4.4.3",
     "@angular/router": "^4.0.0",
     "@ngrx/core": "^1.2.0",
     "@ngrx/store": "^2.2.2",
@@ -58,7 +60,7 @@
   },
   "devDependencies": {
     "@angular/cli": "1.2.0",
-    "@angular/compiler-cli": "^4.0.0",
+    "@angular/compiler-cli": "^4.4.3",
     "@angular/language-service": "^4.0.0",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
@@ -72,7 +74,13 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "lite-server": "^2.3.0",
     "protractor": "~5.1.2",
+    "rollup": "^0.50.0",
+    "rollup-plugin-angular-aot": "0.0.4",
+    "rollup-plugin-commonjs": "^8.2.1",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
     "ts-node": "~3.0.4",
     "tslint": "~5.3.2",
     "typescript": "~2.3.3"

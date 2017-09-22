@@ -7,9 +7,9 @@ import { Component, Input, ViewChild, ElementRef, HostListener, OnInit } from '@
 })
 export class MyIframeComponent implements OnInit {
   @Input() src: string;
-  @ViewChild("frame") frameElement: ElementRef;
-  containerMinWidth: number = 0;
-  containerMinHeight: number = 0;
+  @ViewChild('frame') frameElement: ElementRef;
+  containerMinWidth = 0;
+  containerMinHeight = 0;
   containerWidth: number = this.containerMinWidth;
   containerHeight: number = this.containerMinHeight;
   ngOnInit() {

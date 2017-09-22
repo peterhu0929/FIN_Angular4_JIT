@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import { GlComponent } from './gl.component';
 import {PipeModule} from '../../_pipe/pipe.module';
 import {GlRoutingModule} from './gl-routing.module';
-import { MyIframeComponent } from '../../_shared/my-iframe/my-iframe.component';
+import {SharedCommonModule} from '../../_shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     PipeModule,
-    GlRoutingModule
+    GlRoutingModule,
+    SharedCommonModule
   ],
   declarations: [
-    GlComponent,
-    MyIframeComponent
+    GlComponent
   ]
 })
 export class GlModule { }

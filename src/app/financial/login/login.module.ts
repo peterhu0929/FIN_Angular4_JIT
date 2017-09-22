@@ -8,7 +8,7 @@ import {AuthenticationService} from '../../_services/authentication.service';
 import { LoginService } from './login.service';
 import { I18nService } from '../../_services/i18n.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {BusyModule} from 'angular2-busy';
+// import {BusyModule} from 'angular2-busy/index';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import {BusyModule} from 'angular2-busy';
     FormsModule,
     AngularMaterialModule,
     BrowserAnimationsModule,
-    BusyModule,
+    //  BusyModule,
   ],
   declarations: [
     LoginComponent

@@ -1,4 +1,4 @@
-import { Component, OnInit , ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { HrService } from '../hr.service';
 import { StockOption } from '../../../_model/StockOption';
@@ -7,13 +7,13 @@ import { StockOptionEmployeeViewModel } from '../../../_model/StockOptionEmploye
 import { ConsoleLogService } from '../../../_services/console-log.service';
 
 import { MdDialog } from '@angular/material';
-import { DialogService } from '../../../_services/dialog/dialog.service';
-import { DialogComponent } from '../../../_services/dialog/dialog.component';
+import { FinDialogService } from '../../../_services/fin-dialog/fin-dialog.service';
+import { FinDialogComponent } from '../../../_services/fin-dialog/fin-dialog.component';
 import { Observable } from 'rxjs/Observable';
 import { HttpErrorResponse } from '@angular/common/http';
 
 import { TodoItem } from './todo-item'
-import {Hr02010WEditComponent} from './hr02010w-edit/hr02010w-edit.component';
+import { Hr02010WEditComponent } from './hr02010w-edit/hr02010w-edit.component';
 @Component({
   selector: 'app-hr02010w',
   templateUrl: './HR02010W.component.html',
@@ -27,7 +27,7 @@ export class HR02010WComponent implements OnInit {
   public stockinfo: StockOption;
   public employee: StockOptionEmployee;
   public employeeview: StockOptionEmployeeViewModel;
-  public opened: boolean = true;
+  public opened = true;
   public stockoption: TodoItem = new TodoItem();
   public option: TodoItem;
   public options: TodoItem[];
@@ -45,7 +45,7 @@ export class HR02010WComponent implements OnInit {
   constructor(private hrservice: HrService,
     private log: ConsoleLogService,
     public dialog: MdDialog,
-    private _DialogService: DialogService) {
+    private _DialogService: FinDialogService) {
     this.log.WriteLog('constructor=>');
   }
   showOption(sid, stext) {
@@ -96,12 +96,12 @@ export class HR02010WComponent implements OnInit {
     this.buystock = Math.floor(this.employeeview.stockOptionEmployee.CAN_SHARE_NUMBER / 1000);
     this.buystockfix = this.buystock;
     const strOption1: string = '本人同意全數認購，總認購金額為新台幣 ' + stocktotalamt + '  元。';
-    const strOption2 = '本人同意部分認購，總認購金額為每股認購價格「乘」總認購股數。';
-    const strOption3 = '本人放棄此次增資認購。';
+    const strOption2 = '本人同意部分認購，總認購金額為每股認購價格「乘」總認購股數。（屆時您的現金增資繳款通知書上之認股股數及金額，將依您現在所選擇之認股張數計算之）';
+    const strOption3 = '本人放棄此次增資認購。（您現在若選擇放棄認購，屆時將不會收到現金增資繳款通知書）';
     this.options = [
       { text: strOption1, id: 1 },
       { text: strOption2, id: 2 },
-      { text: strOption3, id: 3 },
+      { text: strOption3, id: 3 }
     ];
   }
 

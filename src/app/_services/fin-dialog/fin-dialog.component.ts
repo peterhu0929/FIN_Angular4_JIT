@@ -4,12 +4,12 @@ import { MD_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-md-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.css']
+  templateUrl: './fin-dialog.component.html',
+  styleUrls: ['./fin-dialog.component.css']
 })
-export class DialogComponent implements OnInit {
+export class FinDialogComponent implements OnInit {
 
-  constructor(public thisDialogRef: MdDialogRef<DialogComponent>, @Inject(MD_DIALOG_DATA) public data: string) { }
+  constructor(public thisDialogRef: MdDialogRef<FinDialogComponent>, @Inject(MD_DIALOG_DATA) public data: string) { }
 
   ngOnInit() {
   }
@@ -23,3 +23,4 @@ export class DialogComponent implements OnInit {
   }
 
 }
+

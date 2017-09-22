@@ -10,5 +10,6 @@
   "/api/StockOptionEmployee/GridRead?page=1&pageSize=10&filter=F_KEY_NO~eq~1&$count=true": "/StockOptionEmployee",
   "/api/StockOption/GridRead?page=1&pageSize=10&$count=true": "/StockOption",
   "/api/StockOptionEmployee/GridRead?$count=true": "/StockOptionEmployee",
-  "/api/StockOptionEmployee/SendReminderEmail":"/SendReminderEmail"
+  "/api/StockOptionEmployee/SendReminderEmail":"/SendReminderEmail",
+  "/api/StockOptionEmployee/SendOpenEmail":"/SendOpenEmail"
 }

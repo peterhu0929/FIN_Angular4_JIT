@@ -8,16 +8,18 @@ import { StockOptionEmployeeViewModel } from '../../_model/StockOptionEmployeeVi
 import { StockOptionEmployee } from '../../_model/StockOptionEmployee';
 import { Observable } from 'rxjs/Observable';
 import { GridWebAPIService } from '../../_shared/grid-webAPI.abstract';
-import { DialogService } from '../../_services/dialog/dialog.service';
+import { FinDialogService } from '../../_services/fin-dialog/fin-dialog.service';
 
 @Injectable()
 export class HrService {
   public userInfoDatas;
   public stockoptions: StockOption;
+  public userName: string = '';
+  public cnt: string;
   constructor(
     private http: Http,
     private sessionservice: SessionService,
-    private dialogService: DialogService) {
+    private dialogService: FinDialogService) {
     this.userInfoDatas = JSON.parse(localStorage.getItem('currentUser'));
   }
   public UploadAccountImage(e: any, cid: string): any {
@@ -29,19 +31,38 @@ export class HrService {
 
     return this.http.post(ilisEnvironment.apiRoot + 'api/StockOptionEmployee/PostFormData', input);
   }
+  public SendOpenEmail(): void {
+    const ReSendEmailURL = ilisEnvironment.apiRoot + 'api/StockOptionEmployee/SendOpenEmail';
+    this.http.get(ReSendEmailURL).subscribe(
+      (response: Response) => this.ReturnSendOpenEmail(response),
+      (error: HttpErrorResponse) => this.HandleError(error));
+  }
+  private ReturnSendOpenEmail(response: any): void {
+    const people = response.json().data.employees;
+    this.cnt = people.length;
+    this.dialogService.OpenDialogBox('發送成功,總共' + this.cnt + '人');
+    console.log(people);
+  }
   public ReSendReminderEmail(): void {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('cache-control', 'no-cache');
-    const options = new RequestOptions({ headers: headers })
+    // const headers = new Headers();
+    // headers.append('Content-Type', 'application/json');
+    // headers.append('cache-control', 'no-cache');
+    // const options = new RequestOptions({ headers: headers })
     const ReSendEmailURL = ilisEnvironment.apiRoot + 'api/StockOptionEmployee/SendReminderEmail';
-    this.http.get(ReSendEmailURL, options).subscribe(
+    this.http.get(ReSendEmailURL).subscribe(
       (response: Response) => this.ReturnReSendReminderEmail(response),
       (error: HttpErrorResponse) => this.HandleError(error));
   }
   private ReturnReSendReminderEmail(response: any): void {
-    this.dialogService.OpenDialogBox('寄送成功');
-    console.log(response.json().data.employees[0].EMPLOYEE_NAME);
+    const repeople = response.json().data.employees;
+    for (const i of repeople) {
+      // this.userName = people[i].EMPLOYEE_NAME;
+      this.userName = this.userName + i.EMPLOYEE_NAME + ',';
+    }
+    this.cnt = repeople.length;
+    this.dialogService.OpenDialogBox('已重新發送給 ' + this.userName + '共' + this.cnt + '人' );
+    this.userName = '';
+    console.log(repeople);
   }
 
   // HR02010W

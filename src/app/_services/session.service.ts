@@ -3,7 +3,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import {Session} from '../_model/session';
 import {Headers, Http, RequestOptions, Response, URLSearchParams} from '@angular/http';
-import {ilisEnvironment} from 'app/../environments/environment';
+import {ilisEnvironment} from '../../environments/environment';
 
 @Injectable()
 export class SessionService {

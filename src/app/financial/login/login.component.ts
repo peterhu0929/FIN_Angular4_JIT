@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { AppSessionService } from '../session/app-session.service';
 import { AuthenticationService } from '../../_services/authentication.service';
-import { environment } from 'app/../environments/environment';
+import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
 import { SessionService } from '../../_services/session.service';
 import { Session } from '../../_model/session';

@@ -16,9 +16,6 @@ const routes: Routes = [
   },
   {
     path: 'main/:moduleId', component: MainComponent, canActivate: [AuthGuard], children: [
-      // { path: 'WebForm', loadChildren: './financial/web-form/web-form.module#WebFormModule' },
-      // { path: 'WebMvc', loadChildren: './financial/web-mvc/web-mvc.module#WebMvcModule' },
-    { path: 'demo', loadChildren: './financial/demo/demo.module#DemoModule' },
     { path: 'invo', loadChildren: './financial/invo/invo.module#InvoModule' },
     { path: 'asset', loadChildren: './financial/asset/asset.module#AssetModule' },
     { path: 'gl', loadChildren: './financial/gl/gl.module#GlModule' },

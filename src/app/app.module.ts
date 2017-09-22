@@ -12,7 +12,6 @@ import { FinancialModule } from './financial/financial.module';
 import {SessionService} from './_services/session.service';
 import {UesrService} from './_services/user.service';
 import {AuthenticationService} from './_services/authentication.service';
-import {DialogService} from './_services/dialog/dialog.service';
 
 @NgModule({
   declarations: [
@@ -31,8 +30,7 @@ import {DialogService} from './_services/dialog/dialog.service';
     AuthenticationService,
     SessionService,
     UesrService,
-    AuthGuard,
-    DialogService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

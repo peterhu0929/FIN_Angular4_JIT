@@ -11,6 +11,7 @@ import { StockOptionEmployee } from '../../../../_model/StockOptionEmployee';
 export class HR03010WMasterGridComponent implements OnInit, AfterViewInit {
   public stockoptionemployee: StockOptionEmployee;
   public view: Observable<GridDataResult>;
+  public opened: boolean = false;
   // public sort: Array<SortDescriptor> = [];
   public pageSize = 10;
   // public skip = 0;
@@ -50,7 +51,14 @@ export class HR03010WMasterGridComponent implements OnInit, AfterViewInit {
     this.service.query({ skip: this.state.skip, take: this.pageSize, sort: this.state.sort, filter: this.state.filter });
   }
 
+
+  public open() {
+    this.opened = true;
+  }
+  public closed() {
+    this.opened = false;
+  }
   reminder() {
-  this.hrservice.ReSendReminderEmail();
+    this.hrservice.ReSendReminderEmail();
   }
 }

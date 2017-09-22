@@ -3,17 +3,16 @@ import { CommonModule } from '@angular/common';
 import { VouComponent } from './vou.component';
 import { PipeModule } from '../../_pipe/pipe.module';
 import { VouRoutingModule } from './vou-routing.module';
-import { MyIframeComponent } from '../../_shared/my-iframe/my-iframe.component';
+import {SharedCommonModule} from '../../_shared/shared.module';
 @NgModule({
   imports: [
     CommonModule,
     PipeModule,
-    VouRoutingModule
+    VouRoutingModule,
+    SharedCommonModule
   ],
   declarations: [
-    VouComponent,
-    MyIframeComponent
-
+    VouComponent
   ]
 })
 export class VouModule { }

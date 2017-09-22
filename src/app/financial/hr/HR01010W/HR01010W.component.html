@@ -1,3 +1,6 @@
+<div style="text-align:left">
+  <button md-raised-button (click)="send()" color="primary" [ngStyle]="{'margin': '20px'}">發送員工認股通知信</button>
+</div>
 <md-card>
   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <md-card-title>
@@ -62,7 +65,7 @@
   </div>
 </md-card>
 
-<kendo-dialog title="認股確認原則，請同仁務必詳細閱讀" *ngIf="!opened">
+<!-- <kendo-dialog title="認股確認原則，請同仁務必詳細閱讀" *ngIf="opened">
   <h5 style="margin: 30px; text-align: left;">
     <ol>
       <li>填寫完畢後請按送出鍵，系統將會寄發確認信至員工電子郵件信箱，同仁收信後點選確認即完成調查</li>
@@ -77,7 +80,7 @@
   <kendo-dialog-actions>
     <button kendoButton (click)="closed()" [primary]="true">我確認</button>
   </kendo-dialog-actions>
-</kendo-dialog>
+</kendo-dialog> -->
 
 <!-- <label>{{(stockoptions.PAYMENT_PERIOD_TO | date:'y')-1911}}{{stockoptions.PAYMENT_PERIOD_TO | date:'/M/d'}}</label> -->
 <!-- <label>{{stockoptions.PAYMENT_PERIOD_FROM | date:'EEE MMM d y HH:mm:ss Z z'}}</label> -->

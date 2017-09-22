@@ -2,7 +2,7 @@
 import {Headers, Http, RequestOptions, Response, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import {ilisEnvironment} from 'app/../environments/environment';
+import {ilisEnvironment} from '../../environments/environment';
 import {USERS} from '../_model/USERS';
 import {UserMenu} from '../_model/menu';
 import {SessionService} from './session.service';

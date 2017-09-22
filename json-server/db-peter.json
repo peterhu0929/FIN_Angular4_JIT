@@ -2677,5 +2677,52 @@
     "messages": null,
     "table": "StockOptionEmployeeController.SendReminderEmail",
     "exception": null
+  },
+  "SendOpenEmail":{
+    "$id": "1",
+    "isSuccess": true,
+    "data": {
+      "$id": "2",
+      "employees": [
+        {
+          "$id": "3",
+          "KEY_NO": 8093,
+          "F_KEY_NO": 1,
+          "IDCARD": "C120486492",
+          "SHARE_NUMBER": 51900,
+          "CAN_SHARE_NUMBER": 51900,
+          "EMPLOYEE_NAME": "馬名揚",
+          "RESIDENCE_ADDRESS": "基隆市信義區東信路２３６巷３０號５樓",
+          "MAILING_ADDRESS": "基隆市信義區東信路２３６巷３０號５樓",
+          "PHONE_NUMBER": "0910051448",
+          "BIRTHDAY": "1973-11-23T00:00:00",
+          "TDCC_ID": "81500365040",
+          "HEAD_OFFICE": null,
+          "BANK_ACCOUNT": null,
+          "COMPANY": null,
+          "FACTORY": null,
+          "DEPARTMENT": "資訊部財務會計系統組",
+          "EMPLOYEE_OPTION": "1",
+          "EMPLOYEEID": "YOUNG",
+          "FLEX1": "young@yangming.com",
+          "FLEX2": "YOUNG",
+          "FLEX3": "621123",
+          "FLEX4": "Y",
+          "FLEX5": "R22SmXsHYFeUmYww_dSkYfybFaggEk",
+          "IN_DATE": null,
+          "IN_USER": null,
+          "UP_DATE": "2017-09-20T19:49:11",
+          "UP_USER": null,
+          "POST_CODE": "201",
+          "MAILING_POST_CODE": "201",
+          "DEPT": "ITGFA"
+        }
+      ]
+    },
+    "status": 0,
+    "message": null,
+    "messages": null,
+    "table": "StockOptionEmployeeController.SendReminderEmail",
+    "exception": null
   }
 }

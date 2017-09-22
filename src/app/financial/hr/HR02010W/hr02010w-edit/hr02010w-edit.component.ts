@@ -8,8 +8,8 @@ import { ConsoleLogService } from '../../../../_services/console-log.service';
 import { HrService } from '../../hr.service';
 
 import { MdDialog } from '@angular/material';
-import { DialogService } from '../../../../_services/dialog/dialog.service';
-import { DialogComponent } from '../../../../_services/dialog/dialog.component';
+import { FinDialogService } from '../../../../_services/fin-dialog/fin-dialog.service';
+import { FinDialogComponent } from '../../../../_services/fin-dialog/fin-dialog.component';
 import { Observable } from 'rxjs/Observable';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Headers, Http, RequestOptions, Response, URLSearchParams } from '@angular/http';
@@ -39,7 +39,7 @@ export class Hr02010WEditComponent implements OnInit {
     private log: ConsoleLogService,
     private hrservice: HrService,
     public dialog: MdDialog,
-    private _DialogService: DialogService
+    private _DialogService: FinDialogService
   ) { }
 
   ngOnInit() {
@@ -59,18 +59,18 @@ export class Hr02010WEditComponent implements OnInit {
     this._DialogService.OpenDialogBox(e.json().error);
   }
 
-  confirm(form: any): void {
-    if ( typeof(this.data.stockOptionEmployee.TDCC_ID) !== "undefined" && this.data.stockOptionEmployee.TDCC_ID !== null ) {
-        if (this.data.stockOptionEmployee.TDCC_ID.length == 11 &&
-          this.data.stockOptionEmployee.CAN_SHARE_NUMBER >= this.data.stockOptionEmployee.SHARE_NUMBER) {
-          this.log.WriteLog(this.data.stockOptionEmployee);
-          this.data.stockOptionEmployee.EMPLOYEE_OPTION = '1';
-          this.hrservice.UpdateOptionEmployee(this.data.stockOptionEmployee).subscribe(
-            (response: Response) => this.ReturnStockOptionEmployeeDataPost(response),
-            (error: HttpErrorResponse) => this.HandleError(error));
-        } else {
-          this._DialogService.OpenDialogBox('資料有誤');
-        } 
+  confirm(): void {
+    if (typeof (this.data.stockOptionEmployee.TDCC_ID) !== 'undefined' && this.data.stockOptionEmployee.TDCC_ID !== null) {
+      if (this.data.stockOptionEmployee.TDCC_ID.length == 11 &&
+        this.data.stockOptionEmployee.CAN_SHARE_NUMBER >= this.data.stockOptionEmployee.SHARE_NUMBER) {
+        this.log.WriteLog(this.data.stockOptionEmployee);
+        this.data.stockOptionEmployee.EMPLOYEE_OPTION = '1';
+        this.hrservice.UpdateOptionEmployee(this.data.stockOptionEmployee).subscribe(
+          (response: Response) => this.ReturnStockOptionEmployeeDataPost(response),
+          (error: HttpErrorResponse) => this.HandleError(error));
+      } else {
+        this._DialogService.OpenDialogBox('資料有誤');
+      }
     } else {
       this._DialogService.OpenDialogBox('資料有誤');
     }
@@ -104,7 +104,7 @@ export class Hr02010WEditComponent implements OnInit {
     const msDateToday = new Date(stockDate);
 
     if (msDateToday < today) {
-      return true; 
+      return true;
     } else {
       return null;
     }

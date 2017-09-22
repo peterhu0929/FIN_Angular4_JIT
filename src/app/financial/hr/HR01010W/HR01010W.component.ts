@@ -4,9 +4,9 @@ import { StockOption } from '../../../_model/StockOption';
 import { ConsoleLogService } from '../../../_services/console-log.service';
 import { Observable } from 'rxjs/Observable';
 import { CommonModule } from '@angular/common';
-// import { DialogModule } from '@progress/kendo-angular-dialog';
 import { RegularExpressionService } from '../../../_services/regular-expression.service';
 import { DateAdapter, NativeDateAdapter } from '@angular/material';
+import { SessionModule } from '../../session/session.module';
 
 export interface JsonModel {
   birthDate: string;
@@ -76,5 +76,8 @@ export class HR01010WComponent implements OnInit {
   }
   public closed() {
     this.opened = false;
+  }
+  public send() {
+    this.hrService.SendOpenEmail();
   }
 }
